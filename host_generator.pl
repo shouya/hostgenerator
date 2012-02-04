@@ -3,12 +3,13 @@
 # Host Generator
 # Feb 1, 2012 by Shou Ya(zxyzxy12321@gmail.com)
 #
-# For mister Huang's request.
 #
 
 use strict;
 use Socket;
 
+
+my $version = v1.0;
 
 my @hostlst;
 
