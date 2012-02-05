@@ -31,7 +31,7 @@ sub print_addr {
     
     for (@$ip) {
 	my ($a, $b, $c, $d) = unpack('C4', $_);
-	$$out .= $host . "\t\t$a.$b.$c.$d\n";
+	$$out .= "$a.$b.$c.$d\t\t$host\n";
     }
 }
 
@@ -40,7 +40,7 @@ sub gen_host {
 
     (!@hostlst) and die "the host list is empty";
     for (@hostlst) {
-	my @ips = (gethostbyname($_))[4];
+	my (undef,undef,undef,undef,@ips) = gethostbyname $_;
 	if (@ips) {
 	    &print_addr(\@ips, \$outstr, $_);
 	} else {
